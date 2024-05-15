@@ -1,0 +1,12 @@
+{
+  "name": "meroshare-ease",
+  "displayName": "MeroshareEase",
+  "version": "0.0.1",
+  "private": "true",
+  "description": "A browser extension to streamline daunting tasks within Meroshare.",
+  "packageManager": "pnpm@9.1.1",
+  "scripts": {},
+  "devDependencies": {
+    "vite": "^5.2.11"
+  }
+}

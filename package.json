@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "dev:get-ready": "node scripts/get-ready.js",
-    "build:background": "vite build --mode development --config vite.config.background.js",
+    "dev:background": "vite build --mode development --config vite.config.background.js",
     "start:chromium": "web-ext run --source-dir ./extension --target=chromium"
   },
   "devDependencies": {

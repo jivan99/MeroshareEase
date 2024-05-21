@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import { r } from "./scripts/utils";
+import { rp } from "./scripts/utils";
 import AutoImport from "unplugin-auto-import/vite";
 
 import { name as packageName } from "./package.json";
@@ -17,11 +17,11 @@ export default defineConfig({
   build: {
     watch: {},
     copyPublicDir: false,
-    outDir: r("extension/dist/background"),
+    outDir: rp("extension/dist/background"),
     emptyOutDir: false,
     cssCodeSplit: false,
     lib: {
-      entry: r("src/background/index.js"),
+      entry: rp("src/background/index.js"),
       name: packageName,
       formats: ["es"]
     },

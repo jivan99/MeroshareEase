@@ -7,9 +7,11 @@
   "packageManager": "pnpm@9.1.1",
   "type": "module",
   "scripts": {
-    "build:background": "vite build --mode development --config vite.config.background.js"
+    "build:background": "vite build --mode development --config vite.config.background.js",
+    "start:chromium": "web-ext run --source-dir ./extension --target=chromium"
   },
   "devDependencies": {
-    "vite": "^5.2.11"
+    "vite": "^5.2.11",
+    "web-ext": "^7.11.0"
   }
 }

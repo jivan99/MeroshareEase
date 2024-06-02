@@ -4,7 +4,7 @@ import { getManifest } from "../src/manifest.js";
 
 export async function generateManifest() {
   const manifest = await getManifest();
-  fs.writeJSON(rp("extension/dist/manifest.json"), manifest, {
+  fs.writeJSON(rp("extension/manifest.json"), manifest, {
     spaces: 4
   });
   log({ name: "GET-READY", message: "generate manifest" });

@@ -7,8 +7,8 @@ const { dirname } = import.meta;
 
 const config = defineConfig({
   context: dirname,
-  mode: "production",
-  devtool: "inline-source-map",
+  mode: "development",
+  devtool: "source-map",
   devServer: {
     hot: false
   },
@@ -19,11 +19,13 @@ const config = defineConfig({
   },
   plugins: [
     new rspack.HtmlRspackPlugin({
+      template: "./src/options/index.html",
       filename: "options/index.html",
       chunks: ["options"],
       scriptLoading: "module"
     }),
     new rspack.HtmlRspackPlugin({
+      template: "./src/popup/index.html",
       filename: "popup/index.html",
       chunks: ["popup"],
       scriptLoading: "module"

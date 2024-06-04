@@ -1,4 +1,6 @@
-console.log(`Howdy! from the background Script!`);
-console.log("Bang she shot me 2 time.");
+import browser from "webextension-polyfill";
 
-import Browser from "webextension-polyfill";
+browser.runtime.onInstalled.addListener(() => {
+  console.log(`Howdy, I'm installed!`);
+	console.log(`Hurray! It worked.`)
+});

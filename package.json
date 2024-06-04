@@ -1,0 +1,22 @@
+{
+  "name": "meroshareease",
+  "version": "0.0.1",
+  "description": "A browser extension to streamline daunting tasks within Meroshare",
+  "devDependencies": {
+    "@rspack/cli": "^0.7.0",
+    "@rspack/core": "^0.7.0",
+    "vue-loader": "^17.4.2"
+  },
+  "scripts": {
+    "dev": "rspack serve",
+    "build": "rspack build -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "vue": "^3.4.27",
+    "webextension-polyfill": "^0.12.0"
+  }
+}

@@ -1,3 +1,3 @@
 <template>
-  <h1>Howdy! I'm a Popup.</h1>
+  <h1>Howdy! I'm a Popup. HMR</h1>
 </template>

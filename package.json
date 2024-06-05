@@ -5,11 +5,14 @@
   "devDependencies": {
     "@rspack/cli": "^0.7.0",
     "@rspack/core": "^0.7.0",
-    "vue-loader": "^17.4.2"
+    "vue-loader": "^17.4.2",
+    "web-ext": "^8.0.0"
   },
   "scripts": {
     "dev": "rspack serve",
-    "build": "rspack build -w"
+    "build": "rspack build -w",
+    "start:chromium": "web-ext run --source-dir ./extension --target=chromium",
+    "start:firefox": "web-ext run --source-dir ./extension --target=firefox-desktop"
   },
   "keywords": [],
   "author": "",

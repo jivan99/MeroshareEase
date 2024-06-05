@@ -21,11 +21,15 @@
     "page": "./dist/options/index.html",
     "open_in_tab": true
   },
+  "host_permissions": ["*://*/*"],
   "content_scripts": [
     {
       "matches": ["https://meroshare.cdsc.com.np/*"],
       "js": ["./dist/content.js"],
       "css": ["./dist/content.css"]
     }
-  ]
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' http://localhost:8080; object-src 'self'"
+  }
 }

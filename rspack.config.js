@@ -15,7 +15,8 @@ const config = defineConfig({
   entry: {
     background: "./src/background/index.js",
     options: "./src/options/main.js",
-    popup: "./src/popup/main.js"
+    popup: "./src/popup/main.js",
+    content: "./src/contentScripts/index.js"
   },
   plugins: [
     new rspack.HtmlRspackPlugin({
@@ -30,16 +31,19 @@ const config = defineConfig({
       chunks: ["popup"],
       scriptLoading: "module"
     }),
+    new rspack.DefinePlugin({
+      __VUE_OPTIONS_API__: "true",
+      __VUE_PROD_DEVTOOLS__: "false",
+      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: "false"
+    }),
     new VueLoaderPlugin()
   ],
   module: {
     rules: [
-      // ...
       {
         test: /\.vue$/,
         loader: "vue-loader",
         options: {
-          // Note, for the majority of features to be available, make sure this option is `true`
           experimentalInlineMatchResource: true
         }
       }
@@ -48,7 +52,8 @@ const config = defineConfig({
   output: {
     path: path.resolve(dirname, "extension/dist"),
     filename: "[name].js",
-    clean: true
+    clean: true,
+    publicPath: ""
   },
   target: ["web"]
 });

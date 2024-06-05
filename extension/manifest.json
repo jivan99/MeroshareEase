@@ -20,5 +20,12 @@
   "options_ui": {
     "page": "./dist/options/index.html",
     "open_in_tab": true
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://meroshare.cdsc.com.np/*"],
+      "js": ["./dist/content.js"],
+      "css": ["./dist/content.css"]
+    }
+  ]
 }

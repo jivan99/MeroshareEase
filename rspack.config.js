@@ -7,8 +7,8 @@ const { dirname } = import.meta;
 
 const config = defineConfig({
   context: dirname,
-  mode: "development",
-  devtool: "source-map",
+  mode: "production",
+  devtool: false,
   devServer: {
     hot: false
   },
@@ -23,13 +23,15 @@ const config = defineConfig({
       template: "./src/options/index.html",
       filename: "options/index.html",
       chunks: ["options"],
-      scriptLoading: "module"
+      scriptLoading: "module",
+      publicPath: "../"
     }),
     new rspack.HtmlRspackPlugin({
       template: "./src/popup/index.html",
       filename: "popup/index.html",
       chunks: ["popup"],
-      scriptLoading: "module"
+      scriptLoading: "module",
+      publicPath: "../"
     }),
     new rspack.DefinePlugin({
       __VUE_OPTIONS_API__: "true",

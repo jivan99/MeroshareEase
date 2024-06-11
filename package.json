@@ -1,0 +1,25 @@
+{
+  "name": "meroshare-ease",
+  "displayName": "MeroshareEase",
+  "version": "0.0.1",
+  "private": "true",
+  "description": "A browser extension to streamline daunting tasks within Meroshare.",
+  "packageManager": "pnpm@9.1.1",
+  "type": "module",
+  "scripts": {
+    "dev:get-ready": "node scripts/get-ready.js",
+    "dev:background": "vite build --mode development --config vite.config.background.js",
+    "start:chromium": "web-ext run --source-dir ./extension --target=chromium"
+  },
+  "devDependencies": {
+    "ansis": "^3.2.0",
+    "chokidar": "^3.6.0",
+    "fs-extra": "^11.2.0",
+    "unplugin-auto-import": "^0.17.6",
+    "vite": "^5.2.11",
+    "web-ext": "^7.11.0"
+  },
+  "dependencies": {
+    "webextension-polyfill": "^0.12.0"
+  }
+}

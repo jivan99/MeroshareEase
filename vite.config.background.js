@@ -1,19 +1,11 @@
 import { defineConfig } from "vite";
 import { rp } from "./scripts/utils";
-import AutoImport from "unplugin-auto-import/vite";
+import { sharedConfig } from "./vite.config";
 
 import { name as packageName } from "./package.json";
 
 export default defineConfig({
-  plugins: [
-    AutoImport({
-      imports: [
-        {
-          "webextension-polyfill": [["*", "browser"]]
-        }
-      ]
-    })
-  ],
+  ...sharedConfig,
   build: {
     watch: {},
     copyPublicDir: false,

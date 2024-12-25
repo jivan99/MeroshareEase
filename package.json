@@ -1,0 +1,30 @@
+{
+  "name": "meroshare-ease",
+  "displayName": "MeroshareEase",
+  "version": "0.0.1",
+  "private": "true",
+  "description": "A browser extension to streamline daunting tasks within Meroshare.",
+  "packageManager": "pnpm@9.15.1",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox",
+    "zip": "wxt zip",
+    "zip:firefox": "wxt zip -b firefox",
+    "postinstall": "wxt prepare"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wxt-dev/module-vue": "^1.0.2",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "wxt": "^0.19.22"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  }
+}

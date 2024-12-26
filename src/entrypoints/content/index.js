@@ -3,29 +3,35 @@ import { createApp } from "vue";
 import Content from "./Content.vue";
 
 export default defineContentScript({
-  matches: ["<all_urls>"],
-  // 2. Set cssInjectionMode
+  matches: ["https://meroshare.cdsc.com.np/*"],
   cssInjectionMode: "ui",
 
   async main(ctx) {
-    // 3. Define your UI
     const ui = await createShadowRootUi(ctx, {
-      name: "meroshare-ui",
+      name: "meroshare-ease-ui",
       position: "inline",
       anchor: "body",
       onMount: (container) => {
-        // Define how your UI will be mounted inside the container
         const app = createApp(Content);
         app.mount(container);
         return app;
       },
       onRemove: (app) => {
-        // Unmount the app when the UI is removed
         app?.unmount();
       }
     });
 
-    // 4. Mount the UI
-    ui.mount();
+    ctx.addEventListener(window, "wxt:locationchange", ({ newUrl }) => {
+      ui.remove();
+
+      if (newUrl.hash === "#/login") {
+        ui.mount();
+        return;
+      }
+    });
+
+    if (window.location.hash === "#/login") {
+      ui.mount();
+    }
   }
 });

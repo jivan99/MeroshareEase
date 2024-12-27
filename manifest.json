@@ -1,0 +1,17 @@
+{
+  "name": "MeroshareEase",
+  "description": "",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "src/background/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "js": ["src/content/content.js"],
+      "matches": ["https://meroshare.cdsc.com.np/*"]
+    }
+  ],
+  "permissions": ["tabs", "activeTab", "webNavigation"]
+}

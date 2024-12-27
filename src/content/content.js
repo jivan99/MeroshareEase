@@ -3,6 +3,8 @@ import App from "./App.vue";
 import { createApp } from "vue";
 import { onMessage } from "webext-bridge/content-script";
 
+// console.log({ browser });
+
 document.documentElement.classList.add("dark");
 
 // Factory function to create a fresh app instance

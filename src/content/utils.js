@@ -1,0 +1,61 @@
+const sheetsMap = new Map();
+const containerId = "meroshare-ease";
+
+export function updateStyle(id, content) {
+  let style = sheetsMap.get(id);
+  {
+    if (style && !(style instanceof HTMLStyleElement)) {
+      removeStyle(id);
+      style = undefined;
+    }
+    if (!style) {
+      style = document.createElement("style");
+      style.setAttribute("type", "text/css");
+      style.innerHTML = content;
+      if (window.location.href.includes("chrome-extension://")) {
+        document.head.appendChild(style);
+      } else {
+        const root = document.getElementById(containerId);
+
+        // if no root try again in a second
+        if (!root) {
+          setTimeout(() => updateStyle(id, content), 1000);
+          return;
+        }
+        const shadowEl = root?.shadowRoot;
+        shadowEl?.appendChild(style);
+      }
+    } else {
+      style.innerHTML = content;
+    }
+  }
+  sheetsMap.set(id, style);
+}
+
+export function removeStyle(id) {
+  const style = sheetsMap.get(id);
+  if (style) {
+    if (window.location.href.includes("chrome-extension://")) {
+      if (style instanceof CSSStyleSheet) {
+        document.adoptedStyleSheets = document.adoptedStyleSheets.filter(
+          (s) => s !== style
+        );
+      } else {
+        document.head.removeChild(style);
+      }
+    } else {
+      const root = document.getElementById(containerId);
+      const shadowEl = root?.shadowRoot;
+      if (style instanceof CSSStyleSheet) {
+        if (shadowEl) {
+          shadowEl.adoptedStyleSheets = shadowEl.adoptedStyleSheets.filter(
+            (s) => s !== style
+          );
+        }
+      } else if (shadowEl) {
+        shadowEl.removeChild(style);
+      }
+    }
+    sheetsMap.delete(id);
+  }
+}

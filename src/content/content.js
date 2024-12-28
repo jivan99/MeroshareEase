@@ -3,14 +3,21 @@ import App from "./App.vue";
 import { createApp } from "vue";
 import { onMessage } from "webext-bridge/content-script";
 
-// console.log({ browser });
-
-document.documentElement.classList.add("dark");
+// Dark Mode by default
+// document.documentElement.classList.add("dark");
 
 // Factory function to create a fresh app instance
 const createMyApp = () => createApp(App);
+
+const container = document.createElement("div");
+container.id = "meroshare-ease";
+
+const shadowDOM = container.attachShadow?.({ mode: "open" }) || container;
 const root = document.createElement("div");
-document.body.append(root);
+root.id = "vue-app";
+root.classList.add("dark");
+shadowDOM.appendChild(root);
+document.body.append(container);
 
 // Initial app creation and mounting based on the hash
 let app = null;

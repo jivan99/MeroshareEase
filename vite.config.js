@@ -30,7 +30,31 @@ export default defineConfig({
       contentScripts: {
         injectCss: true
       }
-    })
+    }),
+    {
+      name: "merge-css-shadow-dom",
+      enforce: "post",
+      apply: "serve",
+      transform(src, id) {
+        if (/\.(css).*$/.test(id)) {
+          const fn =
+            "import { updateStyle, removeStyle } from '/src/content/utils.js';\n";
+          let updatedSrc = fn + src;
+          updatedSrc = updatedSrc.replace(
+            "__vite__updateStyle(",
+            "updateStyle("
+          );
+          updatedSrc = updatedSrc.replace(
+            "__vite__removeStyle(",
+            "removeStyle("
+          );
+          return {
+            code: updatedSrc,
+            map: null
+          };
+        }
+      }
+    }
   ],
   resolve: {
     alias: {

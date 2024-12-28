@@ -24,7 +24,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
-const open = ref(false);
+const open = ref(true);
 const selectedUser = ref(null);
 
 function onUserSelection(user) {
@@ -60,7 +60,7 @@ function onUserSelection(user) {
 
 <template>
   <div
-    class="fixed top-0 left-0 w-screen h-screen z-50 bg-black flex justify-center items-center"
+    class="fixed top-0 left-0 w-screen h-screen z-50 bg-dark flex justify-center items-center"
   >
     <div class="relative -top-[100px]">
       <Popover v-model:open="open">

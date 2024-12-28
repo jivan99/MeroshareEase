@@ -40,3 +40,14 @@ onMessage("HASH_CHANGED", async () => {
     mountApp();
   }
 });
+
+// Listen for LOGOUT
+onMessage("LOGOUT", async () => {
+  const btn = document.querySelector(
+    "a.nav-link.header-menu__link[tooltip='Logout']"
+  );
+
+  if (btn) {
+    btn.click();
+  }
+});

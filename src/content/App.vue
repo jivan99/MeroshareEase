@@ -67,7 +67,6 @@ function onUserSelection(user) {
         <PopoverTrigger as-child>
           <Button
             variant="outline"
-            size="lg"
             role="combobox"
             aria-expanded="open"
             aria-label="Select a user"

@@ -1,4 +1,5 @@
 <script setup>
+import users from "@/../users.json";
 import man from "@/assets/man.png";
 const avatar = browser.runtime.getURL(man);
 
@@ -22,8 +23,6 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-
-const users = [];
 
 const open = ref(false);
 const selectedUser = ref(null);

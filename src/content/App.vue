@@ -86,7 +86,9 @@ function onUserSelection(user) {
           <Command
             :filter-function="
               (list, term) =>
-                list.filter((i) => i.label?.toLowerCase()?.includes(term))
+                list.filter((i) =>
+                  i.label?.toLowerCase()?.includes(term.toLowerCase())
+                )
             "
           >
             <CommandList>

@@ -1,0 +1,26 @@
+{
+  "name": "MeroshareEase",
+  "description": "",
+  "version": "0.0.3",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "src/background/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "js": ["src/content/content.js"],
+      "matches": ["https://meroshare.cdsc.com.np/*"]
+    }
+  ],
+  "permissions": ["tabs", "activeTab", "webNavigation"],
+  "commands": {
+    "LOGOUT": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L",
+        "mac": "MacCtrl+Shift+L"
+      },
+      "description": "Logout from the app."
+    }
+  }
+}

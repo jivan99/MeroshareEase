@@ -55,6 +55,14 @@ function onUserSelection(user) {
   signinBtn.disabled = false;
 
   signinBtn.click();
+
+  // If it fails to navigate to homepage, try reloading
+  setTimeout(() => {
+    const userProfileEl = document.querySelector("div.user-profile.dropdown");
+    if (!userProfileEl) {
+      location.reload();
+    }
+  }, 2000);
 }
 </script>
 
